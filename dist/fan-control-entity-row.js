@@ -109,8 +109,8 @@ class CustomFanCard extends Polymer.Element {
 
     setSpeed(e) {
         const speed = e.currentTarget.getAttribute('name');
-        this.hass.callService('fan', 'set_speed', {
-            entity_id: this._config.entity, speed: speed
+        this.hass.callService('fan', 'set_preset_mode', {
+            entity_id: this._config.entity, preset_mode: speed
         });
     }
 
