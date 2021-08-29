@@ -55,7 +55,6 @@ class CustomFanCard extends Polymer.Element {
                         toggles name="6"
                         on-click='setSpeed'
                         disabled='[[_is6Speed]]'>6</mwc-button>
-                    <ha-entity-toggle hass="[[hass]]" state-obj="[[_stateObj]]"></ha-entity-toggle>
                 </div>
             </hui-generic-entity-row>
         `;
