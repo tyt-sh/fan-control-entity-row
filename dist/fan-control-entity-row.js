@@ -2,6 +2,8 @@ window.customCards = window.customCards || [];
 window.customCards.push({
   type: "tyt-custom-fan-control",
   name: "tyt-custom-fan-control",
+  description: "A plugin to display your fan controls in a button row.",
+  preview: false,
 });
 
 class CustomFanCard extends Polymer.Element {
@@ -12,6 +14,15 @@ class CustomFanCard extends Polymer.Element {
             <style>
                 :host {
                     line-height: 1.5;
+                }
+                .flex-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .flex-container > div {
+                    margin: 0px;
+                    padding: 1px;
                 }
                 .speed {
                     min-width: 30px;
@@ -24,37 +35,42 @@ class CustomFanCard extends Polymer.Element {
                 }
             </style>
             <hui-generic-entity-row hass="[[hass]]" config="[[_config]]">
-                <div class='horizontal justified layout' on-click="stopPropagation">
-                    <mwc-button
+                <div class='flex-container' on-click="stopPropagation">
+                    <div><mwc-button
+                        class='speed'
+                        toggles name="0"
+                        on-click='setSpeed'
+                        disabled='[[_isOff]]'>Off</mwc-button></div> 
+                    <div><mwc-button
                         class='speed'
                         toggles name="1"
                         on-click='setSpeed'
-                        disabled='[[_is1Speed]]'>1</mwc-button>
-                    <mwc-button
+                        disabled='[[_is1Speed]]'>1</mwc-button></div>
+                    <div><mwc-button
                         class='speed'
                         toggles name="2"
                         on-click='setSpeed'
-                        disabled='[[_is2Speed]]'>2</mwc-button>
-                    <mwc-button
+                        disabled='[[_is2Speed]]'>2</mwc-button></div>
+                    <div><mwc-button
                         class='speed'
                         toggles name="3"
                         on-click='setSpeed'
-                        disabled='[[_is3Speed]]'>3</mwc-button>
-                    <mwc-button
+                        disabled='[[_is3Speed]]'>3</mwc-button></div>
+                    <div><mwc-button
                         class='speed'
                         toggles name="4"
                         on-click='setSpeed'
-                        disabled='[[_is4Speed]]'>4</mwc-button>
-                    <mwc-button
+                        disabled='[[_is4Speed]]'>4</mwc-button></div>
+                    <div><mwc-button
                         class='speed'
                         toggles name="5"
                         on-click='setSpeed'
-                        disabled='[[_is5Speed]]'>5</mwc-button>
-                    <mwc-button
+                        disabled='[[_is5Speed]]'>5</mwc-button></div>
+                    <div><mwc-button
                         class='speed'
                         toggles name="6"
                         on-click='setSpeed'
-                        disabled='[[_is6Speed]]'>6</mwc-button>
+                        disabled='[[_is6Speed]]'>6</mwc-button></div>
                 </div>
             </hui-generic-entity-row>
         `;
@@ -68,6 +84,7 @@ class CustomFanCard extends Polymer.Element {
             },
             _config: Object,
             _stateObj: Object,
+            _isOff: Boolean,
             _is1Speed: Boolean,
             _is2Speed: Boolean,
             _is3Speed: Boolean,
@@ -93,12 +110,13 @@ class CustomFanCard extends Polymer.Element {
 
         this.setProperties({
             _stateObj: stateObj,
+            _isOff: stateObj.state === 'off',
             _is1Speed: speed === '1',
             _is2Speed: speed === '2',
-            _is3Speed: speed == '3',
-            _is4Speed: speed == '4',
-            _is5Speed: speed == '5',
-            _is6Speed: speed == '6'
+            _is3Speed: speed === '3',
+            _is4Speed: speed === '4',
+            _is5Speed: speed === '5',
+            _is6Speed: speed === '6'
         });
     }
 
