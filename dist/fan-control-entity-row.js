@@ -30,19 +30,9 @@ class CustomFanCard extends Polymer.Element {
                     outline: none;
                 }
                 .speeds button {
-                    min-width: 34px;
-                    max-width: 34px;
-                    height: 34px;
-                    margin-left: 2px;
-                    margin-right: 2px;
-                    background-color:'var(--dark-accent-color)';
-	                  border: 1px var(--dark-theme-disabled-color);  
-                    border-radius: 4px;
-	                  font-size: 11px !important;
-                    text-align: center;
-	                  float: right !important;
-                    padding: 1px;
-                    font-family : inherit;
+                    min-width: 30px !important;
+                    width: 30px;
+                    font-size: 11px !important;
                 }
             </style>
             <hui-generic-entity-row hass="[[hass]]" config="[[_config]]">
