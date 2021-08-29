@@ -38,37 +38,37 @@ class CustomFanCard extends Polymer.Element {
                 <div class='flex-container' on-click="stopPropagation">
                     <div><mwc-button
                         class='speed'
-                        toggles name="0"
+                        raised noink name="0"
                         on-click='setSpeed'
                         disabled='[[_isOff]]'>Off</mwc-button></div> 
                     <div><mwc-button
                         class='speed'
-                        toggles name="1"
+                        raised noink name="1"
                         on-click='setSpeed'
                         disabled='[[_is1Speed]]'>1</mwc-button></div>
                     <div><mwc-button
                         class='speed'
-                        toggles name="2"
+                        raised noink name="2"
                         on-click='setSpeed'
                         disabled='[[_is2Speed]]'>2</mwc-button></div>
                     <div><mwc-button
                         class='speed'
-                        toggles name="3"
+                        raised noink name="3"
                         on-click='setSpeed'
                         disabled='[[_is3Speed]]'>3</mwc-button></div>
                     <div><mwc-button
                         class='speed'
-                        toggles name="4"
+                        raised noink name="4"
                         on-click='setSpeed'
                         disabled='[[_is4Speed]]'>4</mwc-button></div>
                     <div><mwc-button
                         class='speed'
-                        toggles name="5"
+                        raised noink name="5"
                         on-click='setSpeed'
                         disabled='[[_is5Speed]]'>5</mwc-button></div>
                     <div><mwc-button
                         class='speed'
-                        toggles name="6"
+                        raised noink name="6"
                         on-click='setSpeed'
                         disabled='[[_is6Speed]]'>6</mwc-button></div>
                 </div>
@@ -105,7 +105,7 @@ class CustomFanCard extends Polymer.Element {
 
         let speed;
         if (stateObj && stateObj.attributes) {
-            speed = stateObj.attributes.speed || 'off';
+            speed = stateObj.attributes.preset_mode;
         }
 
         this.setProperties({
