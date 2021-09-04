@@ -127,7 +127,7 @@ class CustomFanCard extends Polymer.Element {
 
         this.setProperties({
             _stateObj: stateObj,
-            _isOff: stateObj.state === 'off',
+            _isOff: speed === '0' ,
             _is1Speed: speed === '1',
             _is2Speed: speed === '2',
             _is3Speed: speed === '3',
