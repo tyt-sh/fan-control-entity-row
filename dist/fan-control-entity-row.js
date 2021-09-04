@@ -40,7 +40,7 @@ class CustomFanCard extends Polymer.Element {
                     <div class="speeds">
                         <button
                             class="mdc-button mdc-button--raised mdc-ripple-upgraded"
-                            toggles name="0"
+                            toggles name="off"
                             on-click='setSpeed'
                             disabled='[[_isOff]]'>
                             <span class="mdc-button__label">OFF</span>
@@ -127,7 +127,7 @@ class CustomFanCard extends Polymer.Element {
 
         this.setProperties({
             _stateObj: stateObj,
-            _isOff: speed === '0' ,
+            _isOff: speed === 'off' ,
             _is1Speed: speed === '1',
             _is2Speed: speed === '2',
             _is3Speed: speed === '3',
